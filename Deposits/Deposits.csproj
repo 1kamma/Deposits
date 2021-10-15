@@ -1,27 +1,47 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <OutputType>Exe</OutputType>
-    <TargetFramework>net5.0</TargetFramework>
-  </PropertyGroup>
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>net5.0</TargetFramework>
+        <ApplicationManifest>app.manifest</ApplicationManifest>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <COMReference Include="Microsoft.Office.Interop.Excel">
+        <WrapperTool>tlbimp</WrapperTool>
+        <VersionMinor>9</VersionMinor>
+        <VersionMajor>1</VersionMajor>
+        <Guid>00020813-0000-0000-c000-000000000046</Guid>
+        <Lcid>0</Lcid>
+        <Isolated>false</Isolated>
+        <EmbedInteropTypes>true</EmbedInteropTypes>
+      </COMReference>
+    </ItemGroup>
 
 
-  <ItemGroup>
-    <Content Include="bins\geckodriver.exe">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
+    <ItemGroup>
+        <Content Include="bins\geckodriver.exe">
+
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </Content>
+        <Content Include="Resources\res.json">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </Content>
+    </ItemGroup>
 
 
-  <ItemGroup>
-    <PackageReference Include="Selenium.WebDriver" Version="3.141.0" />
-      
-    <PackageReference Include="System.Security.Cryptography.Algorithms" Version="4.3.1" />
-  </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="DocumentFormat.OpenXml" Version="2.13.1" />
+        <PackageReference Include="Selenium.WebDriver" Version="3.141.0" />
+        <PackageReference Include="System.Security.Cryptography.Algorithms" Version="4.3.1" />
+    </ItemGroup>
 
     <ItemGroup>
         <Resource Include="bins\" />
-
+        <Reference Include="Resources">
+          <Private>True</Private>
+          <EmbedInteropTypes>True</EmbedInteropTypes>
+        </Reference>
         <Resource Include="SubDep\" />
     </ItemGroup>
 

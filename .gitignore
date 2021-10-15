@@ -1,1 +1,6 @@
 data/
+Resources/res.json
+bin/
+Deposits/bin/
+ref/
+obj/
