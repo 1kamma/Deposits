@@ -3,7 +3,9 @@ namespace Deposits.SubDep {
     class WebDriver {
         FirefoxOptions options = new();
         FirefoxProfile profile = new();
+        string?[] Urls;
         public FirefoxDriver Driver;
+        //JObject UrlAndActions
         private void SetProfile() {
             this.profile.SetPreference("browser.download.folderList", 2);
             this.profile.SetPreference("browser.download.manager.showWhenStarting", false);
@@ -13,11 +15,13 @@ namespace Deposits.SubDep {
             this.profile.SetPreference("browser.download.panel.shown", false);
         }
         private void SetOption() {
+            SetProfile();
             this.options.Profile = this.profile;
             this.options.AddArgument("--lang=EN");
         }
         public WebDriver() {
             //System.IO.Path.Join("bins\\geckodriver.exe");
+            SetOption();
             this.Driver = new($"bins", options);
         }
         public void RunWeb(int timeToWait = 0, params string[] urls) {
