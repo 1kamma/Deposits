@@ -10,12 +10,12 @@ namespace Deposits.SubDep {
             Url = url;
             Mail = mail;
             this.Driver.Url = Url;
-            Deposits.SubDep.Data data = new(true);
-            Data = (JObject)data.DataJson["humail"];
+            Data data = new(true);
+            this.Data = (JObject)data.DataJson["humail"];
         }
         public void DefineMailApp() {
             this.MailApp = new();
-            MailApp.RunWeb()
+            MailApp.RunWeb();
         }
 
     }

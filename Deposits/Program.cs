@@ -1,5 +1,4 @@
 using Deposits.SubDep;
-
 namespace Deposits {
     class Program {
         public static bool ToEncrypt() {
@@ -39,6 +38,7 @@ namespace Deposits {
             //Data data = new Data(true);
             //data.AddToData("{\"phone\":\"0547477082\"}");
             //System.Console.WriteLine("yes");
+
         }
     }
 }
